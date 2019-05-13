@@ -1,5 +1,10 @@
 package GUI;
 
+/**
+ * This class is used to hold the chart data in an organised manner that can be directly transfers to the chart
+ * @author dhruv
+ *
+ */
 public class ChartData {
 	
 	private String name;

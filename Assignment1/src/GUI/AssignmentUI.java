@@ -24,6 +24,11 @@ import Code.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * This class controls the main UI and controls button functions and sends the data around
+ * @author dhruv
+ *
+ */
 public class AssignmentUI {
 	
 	private final String [] attribute = {"Please Select","Country","Year","Sex","Age","Suicide","Population","GDP per Year","GDP per Capita","Generation"};
@@ -145,18 +150,30 @@ public class AssignmentUI {
         			dialog2.setTitle("Sorting Style");
         			dialog2.setHeaderText(null);
         			dialog2.setContentText("Please choose an order to sort by or press ok if you want to continue:");
-        			result1 = dialog2.showAndWait();
-        			if (result1.isPresent()&&(lstAction.getValue().getID()<9))
+        			if ((lstAction.getValue().getID()==6))
         			{
-        				Countrys = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(), result.get().getID(), result1.get().getID());
-        				try {
-							btnViewing(new ActionEvent());
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+        				result1 = dialog2.showAndWait();
+        				if (result1.isPresent())
+        				{
+        					Countrys = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(), result.get().getID(), result1.get().getID());
+        					try {
+        						btnViewing(new ActionEvent());
+        					} catch (IOException e) {
+        						// TODO Auto-generated catch block
+        						e.printStackTrace();
+        					}
+        				}
         			}
-        			
+        			else if(lstAction.getValue().getID()<9)
+        			{
+        				Countrys = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(), result.get().getID(), 1);
+    					try {
+    						btnViewing(new ActionEvent());
+    					} catch (IOException e) {
+    						// TODO Auto-generated catch block
+    						e.printStackTrace();
+    					}
+        			}
         		}
     			if((lstAction.getValue().getID()==9)||(lstAction.getValue().getID()==11))
     			{

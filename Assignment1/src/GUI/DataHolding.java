@@ -1,5 +1,10 @@
 package GUI;
 
+/**
+ * This class is used to hold the values of the various drop down bars for ease of access
+ * @author dhruv
+ *
+ */
 public class DataHolding {
 	private int ID;
 	private String txt;

@@ -10,6 +10,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+/**
+ * This class controls the table and displays it 
+ * @author dhruv
+ *
+ */
 public class TableFunctions {
 	
 	ObservableList<Country> C = FXCollections.observableArrayList();
@@ -50,7 +55,6 @@ public class TableFunctions {
     /**
      * This function is called when the FXML file is initialized and sets up the view on the screen
      */
-	@SuppressWarnings("unchecked")
 	public void initialize() 
 	{
 		Name.setCellValueFactory(new PropertyValueFactory<Country, String>("Name"));
@@ -62,16 +66,22 @@ public class TableFunctions {
 		GDP_per_year.setCellValueFactory(new PropertyValueFactory<Country, Double>("GDP_per_year"));
 		GDP_per_capita.setCellValueFactory(new PropertyValueFactory<Country, Double>("GDP_per_capita"));
 		Generation.setCellValueFactory(new PropertyValueFactory<Country, String>("Generation"));
-		this.tableDis.getColumns().addAll(Name, Year, Age, Sex, Suicide, Population, GDP_per_year, GDP_per_capita,Generation);
 	}
-
+	
+	/**
+	 * Sets the values in the table to be displayed 
+	 * @param countrys is an ArrayList of type Country to hold the data set to be displayed
+	 */
 	public void sendData(ArrayList<Country> countrys) {
 		// TODO Auto-generated method stub
 		this.C = FXCollections.<Country>observableArrayList(countrys);
-		tableDis.setPlaceholder(new Label("My table is empty message"));
 		this.tableDis.setItems(this.C);
 	}
 	
+	/**
+	 * This fucntion is for the button Done 
+	 * @param event is an ActionEvent of type button click
+	 */
 	@FXML
 	public void btnDoneClose(ActionEvent event)
 	{

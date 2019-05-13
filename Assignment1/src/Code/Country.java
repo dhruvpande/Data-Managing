@@ -1,8 +1,8 @@
 package Code;
 
 /**
- * @author pandd4
- *
+ * @author dhruv
+ *This Class is the base class for the dataset
  */
 public class Country {
 	private String name;
@@ -74,6 +74,11 @@ public class Country {
 		return (this.suicide*100000/this.population);
 	}
 	
+	/**
+	 * This function returns the attriibute from an integer value
+	 * @param attribute is the attribute to be selected
+	 * @return is an object of class attribute to hold the value
+	 */
 	public Attributes getAttribute(int attribute)
 	{
 		Attributes a =new Attributes();
