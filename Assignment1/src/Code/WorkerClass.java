@@ -252,12 +252,13 @@ public class WorkerClass {
 	 */
 	public static void quickSort(int attribute, ArrayList<Country> C, int begin, int end,int order)
 	{
-		if (begin<end)
+		if (begin<end-1)
 		{
 			int partitionindex = partition(attribute, C, begin, end,order);
 			
 			quickSort(attribute,C, begin, partitionindex-1,order);
-			quickSort(attribute,C, partitionindex,end,order);
+			if (partitionindex<end-1)
+				quickSort(attribute,C, partitionindex,end,order);
 			
 		}
 		
@@ -326,7 +327,7 @@ public class WorkerClass {
 			{
 				for(int j = begin; j<end;j++)
 				{
-					if(c.get(j).getAttribute(attribute).s.compareTo(pivot.s)<=0)
+					if(c.get(j).getAttribute(attribute).s.compareTo(pivot.s)<0)
 					{
 						i++;
 						
@@ -358,7 +359,7 @@ public class WorkerClass {
 				if(C.get(i).getAttribute(attribute).s==(null))
 				{
 					
-					if(C.get(i).getAttribute(attribute).num!=C.get(j).getAttribute(attribute).num)
+					if((C.get(i).getAttribute(attribute).num!=C.get(j).getAttribute(attribute).num)||(j==C.size()-1))
 					{
 						if (i!=j)
 						{
@@ -371,7 +372,7 @@ public class WorkerClass {
 				}
 				else
 				{
-					if(C.get(i).getAttribute(attribute).s.equals(C.get(j).getAttribute(attribute).s)==false)
+					if((C.get(i).getAttribute(attribute).s.equals(C.get(j).getAttribute(attribute).s)==false)||(j==C.size()-1))
 					{
 						if (i!=j)
 						{
@@ -440,7 +441,6 @@ public class WorkerClass {
 				
 				if(C.get(i).getAttribute(attribute).s==(null))
 				{
-					System.out.println("Here");
 					if(C.get(i).getAttribute(attribute).num==C.get(j).getAttribute(attribute).num)
 					{
 						C.add(j+1,C.get(i));

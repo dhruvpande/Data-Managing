@@ -37,6 +37,7 @@ public class AssignmentUI {
 	ObservableList<DataHolding> actions = FXCollections.observableArrayList();
 	ObservableList<DataHolding> order = FXCollections.observableArrayList();
 	static ArrayList<Country> Countrys;
+	static ArrayList<Country> temp;
 	double ans;
 	
     @FXML
@@ -128,7 +129,7 @@ public class AssignmentUI {
     			Optional<String> result = dialog.showAndWait();
     			if (result.isPresent())
     			{
-    				Countrys = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(),result.get());
+    				temp = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(),result.get());
     			}
     			try {
 					btnViewing(new ActionEvent());
@@ -294,7 +295,15 @@ public class AssignmentUI {
         FXMLLoader loader = new FXMLLoader(fxmlUrlD);
     	Pane displayPane = loader.load();
         TableFunctions tbControl = loader.<TableFunctions>getController();
-        tbControl.sendData(Countrys);
+        if(temp!=null)
+        {
+        	tbControl.sendData(temp);
+        	temp=null;
+        }
+        else
+        {
+        	tbControl.sendData(Countrys);
+        }
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Table");
         primaryStage.setScene(new Scene(displayPane));
