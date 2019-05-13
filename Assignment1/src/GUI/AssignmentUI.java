@@ -66,6 +66,7 @@ public class AssignmentUI {
     @FXML
     private void initialize()
     {
+    	//Sets up the arrays for the various drop down menus in the GUI
     	order.add(new DataHolding(1,"Descending"));
     	order.add(new DataHolding(2,"Ascending"));
     	int i=0;
@@ -106,6 +107,7 @@ public class AssignmentUI {
     	}
     	else
     	{
+    		//If no attribute or action has been selected
     		if((lstAttribute.getValue().getID()==0)||(lstAction.getValue().getID()==0))
     		{
     			Alert alert = new Alert(AlertType.INFORMATION);
@@ -114,6 +116,7 @@ public class AssignmentUI {
         		alert.setContentText("Please Attribute and/or Action");
         		alert.showAndWait();
     		}
+    		//for searching
     		else if(lstAction.getValue().getID()==8)
     		{
     			TextInputDialog dialog = new TextInputDialog();
@@ -135,6 +138,7 @@ public class AssignmentUI {
 				}
 
     		}
+    		//for non simple mathematical options other than searching
     		else if((lstAction.getValue().getID()==6)||(lstAction.getValue().getID()==7)||(lstAction.getValue().getID()>=9))
     		{
     			ChoiceDialog<DataHolding> dialog = new ChoiceDialog<>(attributes.get(0),attributes);
@@ -150,6 +154,7 @@ public class AssignmentUI {
         			dialog2.setTitle("Sorting Style");
         			dialog2.setHeaderText(null);
         			dialog2.setContentText("Please choose an order to sort by or press ok if you want to continue:");
+        			//for sorting
         			if ((lstAction.getValue().getID()==6))
         			{
         				result1 = dialog2.showAndWait();
@@ -164,6 +169,7 @@ public class AssignmentUI {
         					}
         				}
         			}
+        			//for Groupby
         			else if(lstAction.getValue().getID()<9)
         			{
         				Countrys = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID(), result.get().getID(), 1);
@@ -175,6 +181,7 @@ public class AssignmentUI {
     					}
         			}
         		}
+    			//for bar and pie charts
     			if((lstAction.getValue().getID()==9)||(lstAction.getValue().getID()==11))
     			{
     				ArrayList<ChartData> cd = WorkerClass.barChartDataCreating(Countrys, lstAttribute.getValue().getID(), result.get().getID());
@@ -185,6 +192,7 @@ public class AssignmentUI {
 						e.printStackTrace();
 					}
     			}
+    			//for line graphs
     			else if(lstAction.getValue().getID()==10)
     			{
     				ChoiceDialog<DataHolding> dialog2 = new ChoiceDialog<>(attributes.get(0),attributes);
@@ -204,6 +212,7 @@ public class AssignmentUI {
         			}
     			}
     		}
+    		//for mathematical actions
     		else
     		{
     			ans = WorkerClass.actionSelection(lstAttribute.getValue().getID(), Countrys, lstAction.getValue().getID());

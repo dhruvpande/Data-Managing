@@ -70,12 +70,14 @@ public class WorkerClass {
 	 */
 	public static ArrayList<Country> actionSelection(int attribute, ArrayList<Country> C, int action, int attribute2, int order)
 	{
+		//Sorting
 		if(attribute==6) 
 		{
 			quickSort(attribute,C,0,C.size()-1,order);
 			if(attribute2!=-1)
 				secondSort(attribute,attribute2,C,order);
 		}
+		//Group by
 		else
 		{
 			C = groupBy(attribute,C);
@@ -97,10 +99,12 @@ public class WorkerClass {
 	public static ArrayList<Country> actionSelection(int attribute, ArrayList<Country> C, int action, String searchItem)
 	{
 		Attributes a = new Attributes();
+		//for double values
 		if (C.get(0).getAttribute(attribute).s==(null))
 		{
 			a.num=Double.parseDouble(searchItem);
 		}
+		//for String values
 		else
 		{
 			a.s=searchItem;
@@ -276,6 +280,7 @@ public class WorkerClass {
 		//if the attribute to be pivoted is a number
 		if (pivot.s==(null))
 		{
+			//1 is descending and 2 is ascending
 			if (order==1)
 			{
 				for(int j = begin; j<end;j++)
@@ -343,7 +348,9 @@ public class WorkerClass {
 	 * @param order is order in which the data needs to be sorted, ascending or descending
 	 */
 	private static void secondSort(int attribute, int attribute2, ArrayList<Country> C, int order) {
-		// TODO Auto-generated method stub
+		/* fucntion searches the array till it reaches the first set of sequential elements that arent the same according to 
+		attribute1 and the sorts that small list according to the second attribute
+		*/
 		for(int i=0;i<C.size()-1;i++)
 		{
 			for(int j=i+1;j<C.size();j++)
@@ -420,6 +427,8 @@ public class WorkerClass {
 	 */
 	public static ArrayList<Country> groupBy(int attribute, ArrayList<Country> C)
 	{
+		//finds elements in the array the same as the current element according to the attribute 
+		//and inserts them immediately after said element
 		for(int i=0;i<C.size();i++)
 		{
 			for(int j=0;j<i;j++)
@@ -462,6 +471,7 @@ public class WorkerClass {
 	 */
 	public static ArrayList<ChartData> barChartDataCreating(ArrayList<Country> C,int attribute, int attribute2)
 	{
+		//Similar to group by but adds all the data of the second attribute together
 		ArrayList<ChartData> cd = new ArrayList<ChartData>();
 		C = groupBy(attribute,C);
 		int k=0;
