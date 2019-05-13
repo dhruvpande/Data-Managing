@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Reader {
 	/**
 	 * This method scans each line in a CSV file into an object of Class Country and adds it to the ArrayList 
-	 * @param A object of type File containing the path of the file to be opened 
+	 * @param filename A object of type File containing the path of the file to be opened 
 	 * @return An ArrayList of Country Class Type
 	 */
 	public static ArrayList<Country> reading(File fileName)

@@ -490,8 +490,9 @@ public class WorkerClass {
 	/**
 	 * This method creates the data list to be used in the Line Chart creation 
 	 * @param C is the ArrayList of type Country that contains the data set to be converted
-	 * @param attribute is the first attribute to be used as the X-axis of the graph
-	 * @param attribute2 is the second attribute to be used as the Y-axis of the graph
+	 * @param attribute is the first attribute to be used as the Series of the graph
+	 * @param attribute2 is the second attribute to be used as the X-axis of the graph
+	 * @param attribute3 is the third attribute to be used as the Y-axis of the graph
 	 * @return An ArrayList of type ChartData that contains the line graph data in the correct format
 	 */
 	public static ArrayList<ChartData> lineChartDataCreating(ArrayList<Country> C, int attribute, int attribute2, int attribute3)
