@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="485.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChartsController"> 
+   <children>
+      <Pane fx:id="paneLine" prefHeight="478.0" prefWidth="753.0">
+         <children>
+            <LineChart fx:id="graphLine" prefHeight="485.0" prefWidth="753.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+      <Pane fx:id="paneBar" layoutY="2.0" prefHeight="494.0" prefWidth="753.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <BarChart fx:id="graphBar" categoryGap="5.0" prefHeight="478.0" prefWidth="737.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Pane fx:id="panePie" prefHeight="494.0" prefWidth="753.0">
+               <children>
+                  <PieChart fx:id="graphPie" prefHeight="494.0" prefWidth="759.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

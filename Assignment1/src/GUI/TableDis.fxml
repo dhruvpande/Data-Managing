@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="646.0" prefWidth="801.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TableFunctions">
+   <children>
+      <Button fx:id="btnDone" layoutX="344.0" layoutY="567.0" mnemonicParsing="false" onAction="#btnDoneClose" text="Done" />
+      <ScrollPane pannable="true" prefHeight="556.0" prefWidth="800.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="1856.0">
+               <children>
+                  <ScrollBar layoutX="323.0" layoutY="755.0" />
+                  <TableView fx:id="tableDis" prefHeight="564.0" prefWidth="1856.0">
+                    <columns>
+                        <TableColumn fx:id="Name" prefWidth="150.0" text="Country" />
+                      <TableColumn fx:id="Year" minWidth="0.0" prefWidth="0.0" text="Year" />
+                      <TableColumn fx:id="Sex" prefWidth="150.0" text="Sex" />
+                        <TableColumn fx:id="Age" minWidth="0.0" prefWidth="0.0" text="Age" />
+                        <TableColumn fx:id="Suicide" prefWidth="75.0" text="Suicide" />
+                        <TableColumn fx:id="Population" prefWidth="75.0" text="Population" />
+                        <TableColumn fx:id="GDP_per_year" prefWidth="262.0" text="GDP per Year" />
+                        <TableColumn fx:id="GDP_per_capita" prefWidth="133.0" text="GDP per Capita" />
+                        <TableColumn fx:id="Generation" prefWidth="75.0" text="Generation" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</Pane>
