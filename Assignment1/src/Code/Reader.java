@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 /**
  * @author dhruv
- * This class will read the data and store it in an ArrayList of Country Class
+ * This class will read the data and store it in an ArrayList of Country Class 
  */
 public class Reader {
 	/**
 	 * This method scans each line in a CSV file into an object of Class Country and adds it to the ArrayList 
 	 * @param A object of type File containing the path of the file to be opened 
 	 * @return An ArrayList of Country Class Type
-	 * @throws FileNotFoundException
 	 */
 	public static ArrayList<Country> reading(File fileName)
 	{
